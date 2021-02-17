@@ -1,0 +1,14 @@
+import streamlit as st
+def main():
+    st.title("SEAM CARVING")
+    st.write("Content-aware seam carving is a kind of new and effective approach for image resizing, which preserves image content well and does not cause obvious distortion when changing the aspect ratio of images.")
+    st.write("Seam carving uses an energy function defining the importance of pixels. A seam is a connected path of low energy pixels crossing the image from top to bottom, or from left to right. By successively removing we can reduce the size of an image in both directions. For image reduction, seam selection ensures that while preserving the image structure, we remove more of the low energy pixels and fewer of the high energy ones. These operators produce, in effect, a content-aware resizing of images.")
+    st.write("We implemented seam carving using various different techniques to find the best possible technique in terms of time or visual output.")
+    st.write("<h3 style='color: black; font-size: 5;'>1. GREEDY APPROACH</h3>", unsafe_allow_html=True)
+    st.write(" We used sobel filter for this method. After applying sobel filter to the input image,we used greedy approach to find the seam with minimum energy.The results of this approach were not ideal .It was fast but in many of the images it was altering the main object and hence was not optimal.It was because greedy algorithm was always finding the locally minimum energy instead of the globally minimum which resulted in bad outputs.")
+    st.write("<h3 style='color: black; font-size: 5;'>2. DP APPROACH</h3>", unsafe_allow_html=True)
+    st.write("In this method also we used sobel filter.In this method a firstly we are calculating a 2D matrix of the image after applying the filter.Then we found the seam with the lowest energy in the matrix.Once we get the seam it is removed from the energy map image and the original image.Then again the 2D matrix is calculated and the same process is repeated.The outputs from this algorithm were good in visual quality but it was a time consuming process as there was the need to calculate Dp matrix again and again for finding minimum energy seam.")
+    st.write("<h3 style='color: black; font-size: 5;'>3. BIPARTITE GRAPH APPROACH </h3>", unsafe_allow_html=True)
+    st.write("In this technique, we made use of a weighted bipartite graph.The Results from this algorithm were really good and it was the fastest method among the above mentioned techniques. It was calculating all the seams together and then removing them altogether.")
+    st.write("<h3 style='color: black; font-size: 5;'>4. USING CONVOLUTIONAL NEURAL NETWORK(MODEL) </h3>", unsafe_allow_html=True)
+    st.write("A particular filter can be best for an image or may be not.Or other filter appeared to be best so to find the best energy maps for an image we proposed a convolution model.So that on such maps will give us  further the  best results for seam carving")
